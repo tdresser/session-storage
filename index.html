@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>embedded</title>
     <script>
-        const SESSION_KEY = "sessionID";
-        let sessionID = sessionStorage.getItem(SESSION_KEY);
+      const SESSION_KEY = "sessionID";
+      let sessionID = sessionStorage.getItem(SESSION_KEY);
 
-        if (!sessionID) {
-            sessionID = "sess-" + Math.random().toString(36).substring(2, 9);
-            sessionStorage.setItem(SESSION_KEY, sessionID);
-            console.log(`NEW SESSION STARTED! ID: ${sessionID}`);
-        } else {
-            console.log(`CONTINUING SESSION ID: ${sessionID}`);
-        }
+      if (!sessionID) {
+        sessionID = "sess-" + Math.random().toString(36).substring(2, 9);
+        sessionStorage.setItem(SESSION_KEY, sessionID);
+        window.setTimeout(() => {
+          document.body.innerHTML = `<h1>NEW SESSION STARTED! ID: ${sessionID}</h1>`;
+        }, 0);
+      } else {
+        window.setTimeout(() => {
+          document.body.innerHTML = `<h1>CONTINUING SESSION! ID: ${sessionID}</h1>`;
+        }, 0);
+      }
     </script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
