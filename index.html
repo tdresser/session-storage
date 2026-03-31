@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>embedded</title>
+    <script>
+        const SESSION_KEY = "sessionID";
+        let sessionID = sessionStorage.getItem(SESSION_KEY);
+
+        if (!sessionID) {
+            sessionID = "sess-" + Math.random().toString(36).substring(2, 9);
+            sessionStorage.setItem(SESSION_KEY, sessionID);
+            console.log(`NEW SESSION STARTED! ID: ${sessionID}`);
+        } else {
+            console.log(`CONTINUING SESSION ID: ${sessionID}`);
+        }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
